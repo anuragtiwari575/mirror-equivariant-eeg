@@ -1,4 +1,4 @@
-[Uploading README.md…]()
+[README.md](https://github.com/user-attachments/files/33604840/README.md)
 # Exact hemispheric equivariance in motor-imagery EEG decoding
 
 Code and results for the paper. No number in the paper is typed by hand: every
