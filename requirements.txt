@@ -1,0 +1,13 @@
+# Third-party packages the pipeline imports. Versions are deliberately left
+# unpinned here because they must match the environment the fits were actually
+# run in; pin them from that machine before release, e.g.
+#     pip freeze > requirements.lock.txt
+numpy
+scipy
+scikit-learn
+matplotlib
+torch
+mne
+moabb
+braindecode
+pyriemann

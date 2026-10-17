@@ -1,0 +1,8 @@
+protocol: session
+corpora: 2a, 2b, PhysioNet, Cho2017, Dreyer2023
+models: csp_lda, fbcsp, ts_lr, eegnet, shallow, deepnet, tcnet, conformer, eegnet_cr, shallow_cr, eegnet_two, shallow_two, eegnet_rand, shallow_rand, eegnet_mirror, shallow_mirror, conformer_cr, conformer_mirror
+fits used: 6448 (of 9730 lines; 1 lines were incomplete and skipped)
+figures: fig1_asymmetry, fig2_paired, fig3_learning, fig4_confusion, fig5_forest, fig6_spread, fig7_roc, fig10_antisymmetry, fig8_curves, fig9_ablation
+tables: table_datasets, table_accuracy, table_symmetry, table_contrasts, table_learning, table_metrics
+numbers.tex: 694 macros for the prose
+empty cells (corpus, model): 2b/conformer_cr, 2b/conformer_mirror, PhysioNet/conformer_cr, PhysioNet/conformer_mirror, Cho2017/eegnet_two, Cho2017/shallow_two, Cho2017/eegnet_rand, Cho2017/shallow_rand, Cho2017/conformer_cr, Cho2017/conformer_mirror

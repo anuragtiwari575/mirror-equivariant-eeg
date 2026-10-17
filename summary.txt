@@ -1,0 +1,249 @@
+Paper assets, protocol 'session', built from corrected_results\step24_subject_specific.csv
+6448 fits, 5 corpora, 18 models
+
+corpus       subjects  channels        blocks            trials  right hand %
+2a                  9        22             2               288         50.0
+2b                  9         3             3    400 [400--440]         50.0
+PhysioNet         109        64             3       45 [36--57]         48.9
+Cho2017            52        64             1    200 [200--240]         50.0
+Dreyer2023         87        27      6 [4--6]    240 [160--240]         50.0
+
+Accuracy %, mean over subjects (kappa in brackets, then the number of subjects)
+model                                       2a                    2b             PhysioNet               Cho2017            Dreyer2023
+CSP + LDA                      73.46 (0.47)   9       69.38 (0.39)   9       59.05 (0.18) 109       65.19 (0.30)  52       69.54 (0.39)  87
+FBCSP                          79.78 (0.60)   9       65.14 (0.30)   9       51.22 (0.02) 109       64.34 (0.29)  52       67.13 (0.34)  87
+Tangent space + LR             73.92 (0.48)   9       69.51 (0.39)   9       61.86 (0.24) 109       68.74 (0.37)  52       70.83 (0.42)  87
+EEGNet                         78.94 (0.58)   9       70.83 (0.42)   9       55.40 (0.11) 109       70.46 (0.41)  52       73.47 (0.47)  87
+ShallowConvNet                 78.96 (0.58)   9       68.54 (0.37)   9       62.95 (0.26) 109       73.49 (0.47)  52       74.04 (0.48)  87
+DeepConvNet                    79.42 (0.59)   9       70.83 (0.42)   9       57.63 (0.14) 109       71.38 (0.43)  52       71.01 (0.42)  87
+EEG-TCNet                      80.66 (0.61)   9       70.12 (0.40)   9       60.20 (0.20) 109       71.73 (0.43)  52       72.76 (0.46)  87
+EEG-Conformer                  79.14 (0.58)   9       66.41 (0.33)   9       59.99 (0.20) 109       72.83 (0.46)  52       72.47 (0.45)  87
+EEGNet + CR                    79.48 (0.59)   9       74.44 (0.49)   9       60.33 (0.21) 109       73.26 (0.47)  52       76.02 (0.52)  87
+ShallowConvNet + CR            79.68 (0.59)   9       71.25 (0.43)   9       66.99 (0.34) 109       75.39 (0.51)  52       72.81 (0.46)  87
+EEGNet, two branches           78.96 (0.58)   9       70.25 (0.41)   9       57.99 (0.16) 109                     -       74.24 (0.48)  87
+ShallowConvNet, two branches       77.88 (0.56)   9       68.26 (0.37)   9       63.31 (0.26) 109                     -       74.84 (0.50)  87
+EEGNet + random involution       78.58 (0.57)   9       71.48 (0.43)   9       56.38 (0.13) 109                     -       73.79 (0.48)  87
+ShallowConvNet + random involution       80.38 (0.61)   9       70.72 (0.41)   9       63.16 (0.26) 109                     -       74.58 (0.49)  87
+EEGNet + mirror                80.86 (0.62)   9       73.45 (0.47)   9       60.76 (0.21) 109       74.42 (0.49)  52       76.17 (0.52)  87
+ShallowConvNet + mirror        83.82 (0.68)   9       71.99 (0.44)   9       67.47 (0.35) 109       75.06 (0.50)  52       75.36 (0.51)  87
+EEG-Conformer + CR             81.33 (0.63)   9                     -                     -                     -       71.41 (0.43)  87
+EEG-Conformer + mirror         82.79 (0.66)   9                     -                     -                     -       73.42 (0.47)  87
+
+asymmetry of the decision function
+model                                 2a            2b     PhysioNet       Cho2017    Dreyer2023
+EEGNet                             0.605         0.603         0.802         0.616         0.638
+ShallowConvNet                     0.614         0.566         0.773         0.628         0.641
+DeepConvNet                        0.604         0.559             -         0.686             -
+EEG-TCNet                          0.546         0.546             -         0.594             -
+EEG-Conformer                      0.542         0.624             -         0.572             -
+EEGNet + CR                        0.231         0.163         0.430         0.322         0.291
+ShallowConvNet + CR                0.312         0.204         0.273         0.190         0.357
+EEGNet, two branches               0.596         0.596         0.790             -         0.634
+ShallowConvNet, two branches         0.624         0.590         0.768             -         0.617
+EEGNet + random involution         0.575         0.221         0.749             -         0.580
+ShallowConvNet + random involution         0.554         0.197         0.690             -         0.574
+EEGNet + mirror                    0.000         0.000         0.000         0.000         0.000
+ShallowConvNet + mirror            0.000         0.000         0.000         0.000         0.000
+EEG-Conformer + CR                 0.343             -             -             -         0.413
+EEG-Conformer + mirror             0.000             -             -             -         0.000
+
+Paired differences, points [95% CI] dz p (Holm within family, then across the whole table)
+          2a  eegnet_mirror - eegnet                +1.93 [ -1.93,  +5.43] dz=+0.32 p=0.3594 p_fam=0.5276 p_all=1.0000 n=9   the construction against its backbone
+          2a  shallow_mirror - shallow              +4.86 [ -0.59,  +9.21] dz=+0.60 p=0.1016 p_fam=0.4219 p_all=1.0000 n=9   the construction against its backbone
+          2a  eegnet_mirror - eegnet_cr             +1.39 [ +0.51,  +2.47] dz=+0.88 p=0.0234 p_fam=0.2109 p_all=0.8906 n=9   the construction against the same symmetry as augmentation
+          2a  shallow_mirror - shallow_cr           +4.14 [ +1.93,  +6.69] dz=+1.07 p=0.0078 p_fam=0.0859 p_all=0.3203 n=9   the construction against the same symmetry as augmentation
+          2a  eegnet_cr - eegnet                    +0.54 [ -3.03,  +3.60] dz=+0.10 p=0.7812 p_fam=1.0000 p_all=1.0000 n=9   the augmentation against its backbone
+          2a  shallow_cr - shallow                  +0.72 [ -3.63,  +3.29] dz=+0.12 p=0.8555 p_fam=1.0000 p_all=1.0000 n=9   the augmentation against its backbone
+          2a  shallow_mirror - eegnet_mirror        +2.96 [ -0.10,  +6.28] dz=+0.57 p=0.1328 p_fam=0.5312 p_all=1.0000 n=9   which backbone carries the construction
+          2a  eegnet_mirror - eegnet_rand           +2.29 [ -1.88,  +6.40] dz=+0.34 p=0.3359 p_fam=1.0000 p_all=1.0000 n=9   against a random involution
+          2a  shallow_mirror - shallow_rand         +3.45 [ -1.18,  +7.54] dz=+0.49 p=0.1914 p_fam=1.0000 p_all=1.0000 n=9   against a random involution
+          2a  eegnet_mirror - eegnet_two            +1.90 [ -1.49,  +5.25] dz=+0.34 p=0.3281 p_fam=1.0000 p_all=1.0000 n=9   against two branches of the same cost
+          2a  shallow_mirror - shallow_two          +5.94 [ +1.36, +10.83] dz=+0.77 p=0.0508 p_fam=0.4062 p_all=1.0000 n=9   against two branches of the same cost
+          2a  conformer_mirror - conformer          +3.65 [ +0.69,  +6.92] dz=+0.72 p=0.0703 p_fam=0.4219 p_all=1.0000 n=9   the construction against its backbone
+          2a  conformer_mirror - conformer_cr       +1.47 [ -1.08,  +3.63] dz=+0.38 p=0.2969 p_fam=1.0000 p_all=1.0000 n=9   the construction against the same symmetry as augmentation
+          2a  shallow_mirror - ts_lr                +9.90 [ +1.80, +18.88] dz=+0.70 p=0.0625 p_fam=0.1250 p_all=1.0000 n=9   the best new model against the best classical pipeline
+          2b  eegnet_mirror - eegnet                +2.62 [ +0.72,  +4.75] dz=+0.79 p=0.0391 p_fam=0.2734 p_all=1.0000 n=9   the construction against its backbone
+          2b  shallow_mirror - shallow              +3.45 [ -0.16,  +7.64] dz=+0.55 p=0.1562 p_fam=0.4688 p_all=1.0000 n=9   the construction against its backbone
+          2b  eegnet_mirror - eegnet_cr             -1.00 [ -2.45,  +0.09] dz=-0.47 p=0.2188 p_fam=1.0000 p_all=1.0000 n=9   the construction against the same symmetry as augmentation
+          2b  shallow_mirror - shallow_cr           +0.74 [ -0.76,  +2.20] dz=+0.30 p=0.4023 p_fam=1.0000 p_all=1.0000 n=9   the construction against the same symmetry as augmentation
+          2b  eegnet_cr - eegnet                    +3.61 [ +1.25,  +6.30] dz=+0.87 p=0.0273 p_fam=0.1641 p_all=1.0000 n=9   the augmentation against its backbone
+          2b  shallow_cr - shallow                  +2.71 [ -0.74,  +6.48] dz=+0.46 p=0.2109 p_fam=0.6328 p_all=1.0000 n=9   the augmentation against its backbone
+          2b  shallow_mirror - eegnet_mirror        -1.46 [ -3.91,  +1.20] dz=-0.35 p=0.3320 p_fam=0.9961 p_all=1.0000 n=9   which backbone carries the construction
+          2b  eegnet_mirror - eegnet_two            +3.19 [ +1.18,  +5.25] dz=+0.94 p=0.0312 p_fam=0.2812 p_all=1.0000 n=9   against two branches of the same cost
+          2b  shallow_mirror - shallow_two          +3.73 [ -0.56,  +8.63] dz=+0.50 p=0.1992 p_fam=1.0000 p_all=1.0000 n=9   against two branches of the same cost
+          2b  shallow_mirror - ts_lr                +2.48 [ -1.00,  +6.32] dz=+0.41 p=0.2500 p_fam=0.2500 p_all=1.0000 n=9   the best new model against the best classical pipeline
+   PhysioNet  eegnet_mirror - eegnet                +5.36 [ +2.16,  +8.75] dz=+0.31 p=0.0013 p_fam=0.0121 p_all=0.0630 n=109   the construction against its backbone
+   PhysioNet  shallow_mirror - shallow              +4.52 [ +1.99,  +7.00] dz=+0.34 p=0.0005 p_fam=0.0053 p_all=0.0260 n=109   the construction against its backbone
+   PhysioNet  eegnet_mirror - eegnet_cr             +0.43 [ -2.08,  +2.94] dz=+0.03 p=0.7356 p_fam=1.0000 p_all=1.0000 n=109   the construction against the same symmetry as augmentation
+   PhysioNet  shallow_mirror - shallow_cr           +0.48 [ -1.19,  +2.19] dz=+0.05 p=0.5939 p_fam=1.0000 p_all=1.0000 n=109   the construction against the same symmetry as augmentation
+   PhysioNet  eegnet_cr - eegnet                    +4.94 [ +1.83,  +8.13] dz=+0.29 p=0.0028 p_fam=0.0198 p_all=0.1200 n=109   the augmentation against its backbone
+   PhysioNet  shallow_cr - shallow                  +4.04 [ +1.61,  +6.49] dz=+0.31 p=0.0017 p_fam=0.0153 p_all=0.0765 n=109   the augmentation against its backbone
+   PhysioNet  shallow_mirror - eegnet_mirror        +6.71 [ +3.66,  +9.70] dz=+0.41 p=0.0001 p_fam=0.0003 p_all=0.0033 n=109   which backbone carries the construction
+   PhysioNet  eegnet_mirror - eegnet_rand           +4.38 [ +1.49,  +7.25] dz=+0.28 p=0.0042 p_fam=0.0458 p_all=0.1747 n=109   against a random involution
+   PhysioNet  shallow_mirror - shallow_rand         +4.30 [ +1.78,  +6.88] dz=+0.32 p=0.0012 p_fam=0.0156 p_all=0.0576 n=109   against a random involution
+   PhysioNet  eegnet_mirror - eegnet_two            +2.77 [ -0.14,  +5.67] dz=+0.18 p=0.0678 p_fam=0.4749 p_all=1.0000 n=109   against two branches of the same cost
+   PhysioNet  shallow_mirror - shallow_two          +4.15 [ +1.64,  +6.72] dz=+0.31 p=0.0015 p_fam=0.0181 p_all=0.0695 n=109   against two branches of the same cost
+   PhysioNet  shallow_mirror - ts_lr                +5.61 [ +2.81,  +8.32] dz=+0.38 p=0.0002 p_fam=0.0005 p_all=0.0095 n=109   the best new model against the best classical pipeline
+     Cho2017  eegnet_mirror - eegnet                +3.96 [ +1.99,  +5.97] dz=+0.54 p=0.0002 p_fam=0.0024 p_all=0.0104 n=52   the construction against its backbone
+     Cho2017  shallow_mirror - shallow              +1.57 [ -0.07,  +3.34] dz=+0.25 p=0.0778 p_fam=0.4219 p_all=1.0000 n=52   the construction against its backbone
+     Cho2017  eegnet_mirror - eegnet_cr             +1.16 [ -0.55,  +2.81] dz=+0.18 p=0.1900 p_fam=1.0000 p_all=1.0000 n=52   the construction against the same symmetry as augmentation
+     Cho2017  shallow_mirror - shallow_cr           -0.33 [ -1.51,  +0.83] dz=-0.08 p=0.6072 p_fam=1.0000 p_all=1.0000 n=52   the construction against the same symmetry as augmentation
+     Cho2017  eegnet_cr - eegnet                    +2.80 [ +1.08,  +4.58] dz=+0.43 p=0.0025 p_fam=0.0198 p_all=0.1091 n=52   the augmentation against its backbone
+     Cho2017  shallow_cr - shallow                  +1.90 [ +0.07,  +3.91] dz=+0.27 p=0.0529 p_fam=0.2644 p_all=1.0000 n=52   the augmentation against its backbone
+     Cho2017  shallow_mirror - eegnet_mirror        +0.64 [ -1.49,  +2.79] dz=+0.08 p=0.5592 p_fam=0.9961 p_all=1.0000 n=52   which backbone carries the construction
+     Cho2017  shallow_mirror - ts_lr                +6.32 [ +3.89,  +8.84] dz=+0.66 p=0.0000 p_fam=0.0000 p_all=0.0006 n=52   the best new model against the best classical pipeline
+  Dreyer2023  eegnet_mirror - eegnet                +2.70 [ +1.28,  +4.15] dz=+0.40 p=0.0003 p_fam=0.0030 p_all=0.0138 n=87   the construction against its backbone
+  Dreyer2023  shallow_mirror - shallow              +1.32 [ +0.17,  +2.48] dz=+0.24 p=0.0270 p_fam=0.2163 p_all=1.0000 n=87   the construction against its backbone
+  Dreyer2023  eegnet_mirror - eegnet_cr             +0.15 [ -0.96,  +1.30] dz=+0.03 p=0.8110 p_fam=1.0000 p_all=1.0000 n=87   the construction against the same symmetry as augmentation
+  Dreyer2023  shallow_mirror - shallow_cr           +2.56 [ +1.67,  +3.43] dz=+0.60 p=0.0000 p_fam=0.0001 p_all=0.0006 n=87   the construction against the same symmetry as augmentation
+  Dreyer2023  eegnet_cr - eegnet                    +2.55 [ +1.34,  +3.78] dz=+0.43 p=0.0001 p_fam=0.0011 p_all=0.0059 n=87   the augmentation against its backbone
+  Dreyer2023  shallow_cr - shallow                  -1.24 [ -2.52,  -0.00] dz=-0.20 p=0.0645 p_fam=0.2644 p_all=1.0000 n=87   the augmentation against its backbone
+  Dreyer2023  shallow_mirror - eegnet_mirror        -0.80 [ -2.55,  +0.93] dz=-0.10 p=0.3712 p_fam=0.9961 p_all=1.0000 n=87   which backbone carries the construction
+  Dreyer2023  eegnet_mirror - eegnet_rand           +2.38 [ +1.12,  +3.61] dz=+0.40 p=0.0003 p_fam=0.0048 p_all=0.0170 n=87   against a random involution
+  Dreyer2023  shallow_mirror - shallow_rand         +0.79 [ -0.42,  +2.08] dz=+0.13 p=0.2218 p_fam=1.0000 p_all=1.0000 n=87   against a random involution
+  Dreyer2023  eegnet_mirror - eegnet_two            +1.93 [ +0.53,  +3.35] dz=+0.29 p=0.0082 p_fam=0.0820 p_all=0.3280 n=87   against two branches of the same cost
+  Dreyer2023  shallow_mirror - shallow_two          +0.53 [ -0.76,  +1.89] dz=+0.08 p=0.4469 p_fam=1.0000 p_all=1.0000 n=87   against two branches of the same cost
+  Dreyer2023  conformer_mirror - conformer          +0.95 [ -0.66,  +2.61] dz=+0.12 p=0.2638 p_fam=0.5276 p_all=1.0000 n=87   the construction against its backbone
+  Dreyer2023  conformer_mirror - conformer_cr       +2.01 [ +0.57,  +3.48] dz=+0.28 p=0.0105 p_fam=0.1054 p_all=0.4111 n=87   the construction against the same symmetry as augmentation
+  Dreyer2023  shallow_mirror - ts_lr                +4.53 [ +2.60,  +6.51] dz=+0.47 p=0.0000 p_fam=0.0002 p_all=0.0022 n=87   the best new model against the best classical pipeline
+
+Learning curve: accuracy % against the share of the training trials
+corpus      model                             25%          50%         100%
+2a          EEGNet                          69.60        75.00        78.94
+2a          ShallowConvNet                  73.53        77.24        78.96
+2a          EEGNet + mirror                 72.84        79.48        80.86
+2a          ShallowConvNet + mirror         77.55        78.86        83.82
+2b          EEGNet                          66.11        71.88        70.83
+2b          ShallowConvNet                  69.44        68.47        68.54
+2b          EEGNet + mirror                 72.50        75.28        73.45
+2b          ShallowConvNet + mirror         70.90        69.79        71.99
+Dreyer2023  EEGNet                          64.60        69.63        73.47
+Dreyer2023  ShallowConvNet                  68.33        71.06        74.04
+Dreyer2023  EEGNet + mirror                 67.82        72.33        76.17
+Dreyer2023  ShallowConvNet + mirror         69.71        73.19        75.36
+
+Sensitivity / specificity / precision / F1 / balanced accuracy / MCC (right hand positive)
+corpus      model                         sens    spec    prec      F1  bal acc     MCC    cons    lean    n
+2a          CSP + LDA                     86.7    60.2    68.5    76.6     73.5   0.487    40.7   +26.5    9
+2a          FBCSP                         78.1    81.5    80.8    79.4     79.8   0.596    49.0    -3.4    9
+2a          Tangent space + LR            75.0    72.8    73.4    74.2     73.9   0.479    52.0    +2.2    9
+2a          EEGNet                        79.8    78.0    78.4    79.1     78.9   0.579    57.3    +1.8    9
+2a          ShallowConvNet                75.0    82.9    81.5    78.1     79.0   0.581    54.9    -7.9    9
+2a          DeepConvNet                   71.7    87.1    84.8    77.7     79.4   0.596    55.0   -15.4    9
+2a          EEG-TCNet                     78.9    82.4    81.8    80.3     80.7   0.614    59.0    -3.5    9
+2a          EEG-Conformer                 79.9    78.4    78.7    79.3     79.1   0.583    57.9    +1.5    9
+2a          EEGNet + CR                   81.6    77.4    78.3    79.9     79.5   0.590    85.5    +4.2    9
+2a          ShallowConvNet + CR           76.2    83.2    81.9    78.9     79.7   0.595    80.0    -7.0    9
+2a          EEGNet, two branches          77.5    80.5    79.9    78.6     79.0   0.579    58.2    -3.0    9
+2a          ShallowConvNet, two branches    77.4    78.4    78.2    77.8     77.9   0.558    53.7    -1.0    9
+2a          EEGNet + random involution    78.9    78.2    78.4    78.6     78.6   0.572    60.6    +0.7    9
+2a          ShallowConvNet + random involution    80.3    80.5    80.4    80.4     80.4   0.608    62.7    -0.2    9
+2a          EEGNet + mirror               80.8    81.0    80.9    80.8     80.9   0.617   100.0    -0.2    9
+2a          ShallowConvNet + mirror       82.3    85.4    84.9    83.6     83.8   0.677   100.0    -3.1    9
+2a          EEG-Conformer + CR            86.1    76.5    78.6    82.2     81.3   0.629    78.5    +9.6    9
+2a          EEG-Conformer + mirror        80.2    85.3    84.6    82.3     82.8   0.657   100.0    -5.1    9
+2b          CSP + LDA                     75.0    63.7    67.4    71.0     69.4   0.390    56.4   +11.2    9
+2b          FBCSP                         60.6    69.7    66.7    63.5     65.1   0.304    52.9    -9.2    9
+2b          Tangent space + LR            72.6    66.4    68.4    70.4     69.5   0.391    64.7    +6.2    9
+2b          EEGNet                        67.0    74.6    72.5    69.7     70.8   0.418    58.3    -7.6    9
+2b          ShallowConvNet                73.4    63.7    66.9    70.0     68.5   0.373    62.4    +9.8    9
+2b          DeepConvNet                   64.3    77.4    74.0    68.8     70.8   0.420    59.7   -13.1    9
+2b          EEG-TCNet                     63.9    76.3    73.0    68.1     70.1   0.405    61.3   -12.5    9
+2b          EEG-Conformer                 69.4    63.4    65.5    67.4     66.4   0.329    58.5    +6.0    9
+2b          EEGNet + CR                   77.0    71.9    73.3    75.1     74.4   0.490    89.0    +5.1    9
+2b          ShallowConvNet + CR           73.0    69.5    70.5    71.7     71.2   0.425    86.2    +3.4    9
+2b          EEGNet, two branches          65.3    75.2    72.5    68.7     70.3   0.407    59.4    -9.9    9
+2b          ShallowConvNet, two branches    75.8    60.7    65.9    70.5     68.3   0.370    59.8   +15.1    9
+2b          EEGNet + random involution    73.7    69.3    70.6    72.1     71.5   0.430    85.5    +4.4    9
+2b          ShallowConvNet + random involution    74.5    66.9    69.2    71.8     70.7   0.416    87.5    +7.6    9
+2b          EEGNet + mirror               75.3    71.6    72.6    73.9     73.4   0.469   100.0    +3.8    9
+2b          ShallowConvNet + mirror       74.1    69.9    71.1    72.6     72.0   0.440   100.0    +4.2    9
+PhysioNet   CSP + LDA                     61.7    56.2    58.2    59.9     59.0   0.180    48.2    +5.1  109
+PhysioNet   FBCSP                         50.1    52.2    50.9    50.5     51.2   0.023    31.7    -2.1  109
+PhysioNet   EEGNet                        57.8    53.0    54.8    56.3     55.4   0.108    41.4    +5.1  109
+PhysioNet   ShallowConvNet                60.7    65.2    63.3    62.0     63.0   0.260    39.9    -4.6  109
+PhysioNet   EEGNet + CR                   58.8    61.9    60.4    59.6     60.4   0.207    73.3    -3.2  109
+PhysioNet   ShallowConvNet + CR           65.8    68.2    67.2    66.5     67.0   0.340    83.1    -2.6  109
+PhysioNet   EEGNet, two branches          54.7    61.1    58.1    56.4     57.9   0.158    41.4    -6.3  109
+PhysioNet   ShallowConvNet, two branches    62.0    64.7    63.4    62.7     63.3   0.267    41.8    -2.8  109
+PhysioNet   EEGNet + random involution    55.6    57.2    56.2    55.9     56.4   0.128    46.5    -1.7  109
+PhysioNet   ShallowConvNet + random involution    63.9    62.4    62.7    63.3     63.2   0.264    51.4    +1.5  109
+PhysioNet   EEGNet + mirror               60.6    60.7    60.4    60.5     60.7   0.213   100.0    -0.3  109
+PhysioNet   ShallowConvNet + mirror       66.3    68.7    67.7    67.0     67.5   0.350   100.0    -2.3  109
+Cho2017     CSP + LDA                     66.0    64.2    64.9    65.4     65.1   0.302    48.6    +1.5   52
+Cho2017     FBCSP                         65.6    63.0    63.9    64.8     64.3   0.286    49.4    +2.3   52
+Cho2017     Tangent space + LR            69.1    68.2    68.5    68.8     68.6   0.373    50.5    +0.7   51
+Cho2017     EEGNet                        72.6    68.2    69.5    71.0     70.4   0.408    57.8    +4.2   52
+Cho2017     ShallowConvNet                71.7    75.1    74.2    72.9     73.4   0.468    56.8    -3.6   52
+Cho2017     DeepConvNet                   68.0    74.3    72.5    70.2     71.1   0.423    47.4    -6.4   51
+Cho2017     EEG-TCNet                     68.9    74.5    73.0    70.9     71.7   0.435    58.2    -5.3   51
+Cho2017     EEG-Conformer                 71.5    74.0    73.4    72.4     72.8   0.456    57.1    -2.7   51
+Cho2017     EEGNet + CR                   72.2    74.3    73.7    72.9     73.2   0.465    79.7    -2.2   52
+Cho2017     ShallowConvNet + CR           76.9    73.8    74.6    75.7     75.4   0.508    88.8    +3.3   52
+Cho2017     EEGNet + mirror               73.6    75.1    74.8    74.2     74.4   0.488   100.0    -1.5   52
+Cho2017     ShallowConvNet + mirror       73.4    76.7    75.9    74.6     75.0   0.501   100.0    -3.2   52
+Dreyer2023  CSP + LDA                     70.2    68.9    69.3    69.7     69.5   0.391    52.0    +1.4   87
+Dreyer2023  FBCSP                         68.3    66.0    66.7    67.5     67.1   0.343    51.1    +2.3   87
+Dreyer2023  EEGNet                        74.2    72.7    73.1    73.7     73.5   0.469    55.1    +1.5   87
+Dreyer2023  ShallowConvNet                72.9    75.2    74.6    73.7     74.0   0.481    53.9    -2.3   87
+Dreyer2023  EEGNet + CR                   76.0    76.0    76.0    76.0     76.0   0.520    80.8    +0.0   87
+Dreyer2023  ShallowConvNet + CR           74.3    71.3    72.1    73.2     72.8   0.456    77.2    +3.1   87
+Dreyer2023  EEGNet, two branches          74.2    74.3    74.2    74.2     74.2   0.485    55.1    -0.0   87
+Dreyer2023  ShallowConvNet, two branches    73.6    76.1    75.5    74.5     74.8   0.497    57.0    -2.5   87
+Dreyer2023  EEGNet + random involution    73.4    74.2    74.0    73.7     73.8   0.476    59.7    -0.8   87
+Dreyer2023  ShallowConvNet + random involution    74.7    74.4    74.5    74.6     74.6   0.492    60.1    +0.3   87
+Dreyer2023  EEGNet + mirror               76.1    76.3    76.2    76.1     76.2   0.523   100.0    -0.2   87
+Dreyer2023  ShallowConvNet + mirror       76.1    74.6    75.0    75.6     75.4   0.507   100.0    +1.5   87
+Dreyer2023  EEG-Conformer + CR            68.3    74.5    72.8    70.5     71.4   0.429    68.9    -6.1   87
+Dreyer2023  EEG-Conformer + mirror        72.8    74.1    73.7    73.2     73.4   0.468   100.0    -1.3   87
+
+  fig3_learning: no curve on PhysioNet, Cho2017 (one point only), so they are not drawn
+
+  fig6_spread: drawn for CSP + LDA, Tangent space + LR, EEGNet, ShallowConvNet, EEGNet + CR, ShallowConvNet + CR, EEGNet + mirror, ShallowConvNet + mirror; the other 10 decoders are in the accuracy table
+
+Mean area under the ROC curve, over subjects
+corpus      model                          AUC    n
+2a          EEGNet                       0.861    9
+2a          EEGNet + CR                  0.857    9
+2a          EEGNet + mirror              0.886    9
+2a          ShallowConvNet               0.868    9
+2a          ShallowConvNet + CR          0.890    9
+2a          ShallowConvNet + mirror      0.900    9
+2b          Tangent space + LR           0.764    9
+2b          EEGNet                       0.775    9
+2b          EEGNet + CR                  0.807    9
+2b          EEGNet + mirror              0.800    9
+2b          ShallowConvNet               0.742    9
+2b          ShallowConvNet + CR          0.775    9
+2b          ShallowConvNet + mirror      0.776    9
+PhysioNet   EEGNet                       0.608  109
+PhysioNet   EEGNet + CR                  0.642  109
+PhysioNet   EEGNet + mirror              0.647  109
+PhysioNet   ShallowConvNet               0.691  109
+PhysioNet   ShallowConvNet + CR          0.736  109
+PhysioNet   ShallowConvNet + mirror      0.745  109
+Dreyer2023  EEGNet                       0.801   87
+Dreyer2023  EEGNet + CR                  0.827   87
+Dreyer2023  EEGNet + mirror              0.825   87
+Dreyer2023  ShallowConvNet               0.815   87
+Dreyer2023  ShallowConvNet + CR          0.804   87
+Dreyer2023  ShallowConvNet + mirror      0.827   87
+
+Antisymmetry figure drawn on BCI IV 2b; the dashed line is s(Mx) = -s(x)
+
+Ablation: the construction against its controls
+      BCI IV 2a:  EEGNet+mir - EEGNet+rnd                         +2.29 [ -1.88,  +6.40] p=0.3359 n=9   the anatomical exchange against a random involution
+      BCI IV 2a:  Shallow+mir - Shallow+rnd                       +3.45 [ -1.18,  +7.54] p=0.1914 n=9   the same control on the other backbone
+      BCI IV 2a:  EEGNet+mir - EEGNet+2br                         +1.90 [ -1.49,  +5.25] p=0.3281 n=9   the construction against two branches of the same cost
+      BCI IV 2a:  Shallow+mir - Shallow+2br                       +5.94 [ +1.36, +10.83] p=0.0508 n=9   the same control on the other backbone
+      BCI IV 2b:  EEGNet+mir - EEGNet+2br                         +3.19 [ +1.18,  +5.25] p=0.0312 n=9   the construction against two branches of the same cost
+      BCI IV 2b:  Shallow+mir - Shallow+2br                       +3.73 [ -0.56,  +8.63] p=0.1992 n=9   the same control on the other backbone
+      Motor Movement/Imagery:  EEGNet+mir - EEGNet+rnd            +4.38 [ +1.49,  +7.25] p=0.0042 n=109   the anatomical exchange against a random involution
+      Motor Movement/Imagery:  Shallow+mir - Shallow+rnd          +4.30 [ +1.78,  +6.88] p=0.0012 n=109   the same control on the other backbone
+      Motor Movement/Imagery:  EEGNet+mir - EEGNet+2br            +2.77 [ -0.14,  +5.67] p=0.0678 n=109   the construction against two branches of the same cost
+      Motor Movement/Imagery:  Shallow+mir - Shallow+2br          +4.15 [ +1.64,  +6.72] p=0.0015 n=109   the same control on the other backbone
+      Dreyer:  EEGNet+mir - EEGNet+rnd                            +2.38 [ +1.12,  +3.61] p=0.0003 n=87   the anatomical exchange against a random involution
+      Dreyer:  Shallow+mir - Shallow+rnd                          +0.79 [ -0.42,  +2.08] p=0.2218 n=87   the same control on the other backbone
+      Dreyer:  EEGNet+mir - EEGNet+2br                            +1.93 [ +0.53,  +3.35] p=0.0082 n=87   the construction against two branches of the same cost
+      Dreyer:  Shallow+mir - Shallow+2br                          +0.53 [ -0.76,  +1.89] p=0.4469 n=87   the same control on the other backbone
+
